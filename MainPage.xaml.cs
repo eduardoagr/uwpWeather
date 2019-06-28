@@ -18,13 +18,6 @@ namespace uwpWeather {
             InitializeComponent();
         }
 
-        //Custom method fo launching the app in full screen
-
-        private static void MaximizeWindowOnLoad() {
-            ApplicationView.GetForCurrentView().TryEnterFullScreenMode();
-        }
-
-
         private async void getDataAsync(object sender, RoutedEventArgs e) {
 
             dataWait.Visibility = Visibility.Visible;
@@ -57,7 +50,7 @@ namespace uwpWeather {
             try {
                 var client = new HttpClient();
                 var response = await client.GetStringAsync(new Uri(url));
-                var parseObj = JsonConvert.DeserializeObject<Rootobject>(response);
+                var parseObj = JsonConvert.DeserializeObject<dynamic>(response);
 
                 // I do not like these icons, so I am going to use my own 
                 var imgObj = string.Format("ms-appx:///Assets/Weather/{0}.png", parseObj.weather[0].icon);
@@ -73,7 +66,7 @@ namespace uwpWeather {
         
         //Custom method to draw the UI
 
-        private void DrawComponents(Rootobject parseObj, string imgObj, Double lat, Double lon) {
+        private void DrawComponents(dynamic parseObj, string imgObj, Double lat, Double lon) {
 
             imgIcon.Source = new BitmapImage(new Uri(imgObj, UriKind.Absolute));
             userLocale.Text = $"{parseObj.name}, {parseObj.sys.country}";
