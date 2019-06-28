@@ -6,4 +6,4 @@ After getting permission, the app will show a *Progress Ring* and some text, to 
 When finished, the app will display the data from *API* along side with a map, with the user current location.<br/>
 <br/>
 **Note**<br/>
-The map will show with a warning, becouse I did not wanted to register my app, becouse is not a comercial aplication, that I will put on the store
+**The map will show with a warning, becouse I did not wanted to register my app, becouse is not a comercial aplication, that I will put on the store**
