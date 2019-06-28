@@ -13,7 +13,7 @@ namespace uwpWeather.Classes {
             if (accessStatus != GeolocationAccessStatus.Allowed) {
                 throw new Exception();
             }
-            Geolocator geolocator = new Geolocator { DesiredAccuracy = 0 };
+            Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = 0  };
 
             var position = await geolocator.GetGeopositionAsync();
 

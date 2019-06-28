@@ -16,6 +16,12 @@ namespace uwpWeather {
     public sealed partial class MainPage : Page {
         public MainPage() {
             InitializeComponent();
+
+            RunFullScreen();
+        }
+
+        private void RunFullScreen() {
+           ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
         }
 
         private async void getDataAsync(object sender, RoutedEventArgs e) {
@@ -88,7 +94,6 @@ namespace uwpWeather {
 
             var spaceNeedleIcon = new MapIcon {
                 Location = GeoPoint,
-                NormalizedAnchorPoint = new Point(0.5, 0.5),
                 ZIndex = 0,
                 Title = "You are here"
             };
